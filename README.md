@@ -38,16 +38,14 @@ I built a web application called MyLift in the hopes of changing how gym-goers a
 ```
 def unordered_list(strings):
   # creating unordered list tag
-  unlist = '<ul>'
+  ulst = '<ul>'
 
   # iterate over strings
   for s in strings:
-    # append list item tag with contents of one element in strings
-    unlist += '<li>%s</li>' % s
+    ulst += '<li>%s</li>' % s
 
-  # append closing unordered list tag
-  unlist += '</ul>'
-  return unlist
+  ulst += '</ul>'
+  return ulst
 ```
 If we are given a list, the function should check whether is was given by user input and if the input is in list form.
 
@@ -72,14 +70,12 @@ def hello_world():
 # Route takes the number of sides on the die as a single argument
 @app.route('/roll_the_dice/<int:sides>/json')
 def roll_the_dice(sides):
-  """Return the result of two dice with user-specified number of sides
-  being rolled as a json object"""
 
   # Assign the result of the die roll
   dice1 = random.randint(1,sides)
   dice2 = random.randint(1,sides)
 
-  # Return the results of the dice rolled as json string, sorted by key
+  # Return the results of the dice rolled as a json string
   return json.dumps({'dice1': dice1, 'dice2': dice2}, sort_keys=True)
 
 if __name__ == '__main__':
